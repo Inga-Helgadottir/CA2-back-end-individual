@@ -1,4 +1,5 @@
 CREATE SCHEMA CA2;
+use CA2;
 create table if not exists roles
 (
     role_name varchar
