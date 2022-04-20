@@ -94,6 +94,7 @@ public class LoginEndpointTest {
     private static String securityToken;
 
     //Utility method to login and set the returned securityToken
+    //integration test
     private static void login(String role, String password) {
         String json = String.format("{username: \"%s\", password: \"%s\"}", role, password);
         securityToken = given()
@@ -221,4 +222,23 @@ public class LoginEndpointTest {
                 .body("message", equalTo("Not authenticated - do login"));
     }
 
+    @Test
+    void pokemon() {
+        login("user_admin", "test");
+        given()
+                .contentType("application/json")
+                .when()
+                .get("info/pokemon").then()
+                .statusCode(200);
+    }
+
+    @Test
+    void swapi() {
+        login("user_admin", "test");
+        given()
+                .contentType("application/json")
+                .when()
+                .get("info/swapi").then()
+                .statusCode(200);
+    }
 }
