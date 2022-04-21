@@ -101,7 +101,7 @@ public class DemoResource {
             conn.setRequestProperty("Accept", "application/json");
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : "
-                        + conn.getResponseCode());
+                        + conn.getResponseCode() + conn.getResponseMessage());
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
@@ -136,7 +136,8 @@ public class DemoResource {
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
+            JsonObject error = new Gson().fromJson(new Gson().toJson(e), JsonObject.class);
+            return error;
         }
-        return null;
     }
 }
