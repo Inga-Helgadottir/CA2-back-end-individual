@@ -11,7 +11,7 @@ public class SetupTestUsers {
 
   public static void main(String[] args) {
 
-    EntityManagerFactory emf = EMF_Creator.createEntityManagerFactory();
+    EntityManagerFactory emf = EMF_Creator.createEntityManagerFactoryForTest();
     EntityManager em = emf.createEntityManager();
     
     // IMPORTAAAAAAAAAANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
