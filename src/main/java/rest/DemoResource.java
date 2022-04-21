@@ -95,7 +95,7 @@ public class DemoResource {
 
     public JsonObject getFromAPI() {
         try {
-            URL url = new URL("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");//your url i.e fetch data from .
+            URL url = new URL("https://pokeapi.co/api/v2/pokemon?limit=2&offset=0");//your url i.e fetch data from .
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
