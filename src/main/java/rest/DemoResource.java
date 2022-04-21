@@ -112,7 +112,7 @@ public class DemoResource {
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
-            JsonObject error = new Gson().fromJson(String.valueOf(e), JsonObject.class);
+            JsonObject error = new Gson().fromJson(new Gson().toJson(e), JsonObject.class);
             return error;
         }
     }
