@@ -105,14 +105,10 @@ public class DemoResource {
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
-            String output;
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-                JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
-
-                return convertedObject;
-            }
+            String output = br.readLine();
+            JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
             conn.disconnect();
+            return convertedObject;
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
@@ -132,14 +128,10 @@ public class DemoResource {
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
-            String output;
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-                JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
-
-                return convertedObject;
-            }
+            String output = br.readLine();
+            JsonObject convertedObject = new Gson().fromJson(output, JsonObject.class);
             conn.disconnect();
+            return convertedObject;
 
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
